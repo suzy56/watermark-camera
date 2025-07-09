@@ -4,12 +4,7 @@
     <div v-if="!watermarkedPhoto" class="camera-btn-group">
       <button class="camera-btn" @click="onTakePhoto('environment')">
         <span class="camera-icon"></span>
-        <!-- <span class="camera-label">后置拍照</span> -->
       </button>
-      <!-- <button class="camera-btn" @click="onTakePhoto('user')">
-        <span class="camera-icon flip"></span>
-        <span class="camera-label">前置拍照</span>
-      </button> -->
     </div>
 
     <!-- 缩略图和删除 -->
@@ -43,7 +38,7 @@
       </div>
     </teleport>
 
-        <!-- 隐藏canvas用于生成水印，全屏尺寸 -->
+    <!-- 隐藏canvas用于生成水印，全屏尺寸 -->
     <canvas
       v-if="showCanvas"
       canvas-id="watermarkCanvas"
