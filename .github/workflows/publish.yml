@@ -1,0 +1,47 @@
+name: 构建并发布到 npm
+
+on:
+  push:
+    tags:
+      - 'v*'  # 当推送版本标签时触发
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+        
+      - name: 设置 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          registry-url: 'https://registry.npmjs.org'
+          
+      - name: 安装依赖
+        run: npm ci
+        
+      - name: 运行类型检查
+        run: npm run type-check
+        
+      - name: 构建组件
+        run: npm run build:lib
+        
+      - name: 发布到 npm
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          
+      - name: 创建 GitHub Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          generate_release_notes: true
+          files: |
+            dist/*.js
+            dist/*.d.ts
+            dist/*.css
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 

@@ -1,0 +1,56 @@
+{
+  "name": "vue3-watermark-camera",
+  "version": "1.0.0",
+  "description": "A Vue 3 component for taking photos with watermark support",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./style": "./dist/style.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && vue-tsc --emitDeclarationOnly",
+    "preview": "vite preview",
+    "type-check": "vue-tsc --noEmit",
+    "build:lib": "node build.js",
+    "publish:lib": "node publish.js",
+    "release:patch": "node scripts/release.js patch",
+    "release:minor": "node scripts/release.js minor",
+    "release:major": "node scripts/release.js major",
+    "setup": "node scripts/setup.js"
+  },
+  "keywords": [
+    "vue",
+    "vue3",
+    "component",
+    "camera",
+    "watermark",
+    "photo",
+    "uni-app"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  },
+  "dependencies": {
+    "dingtalk-jsapi": "^3.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@vitejs/plugin-vue": "^4.0.0",
+    "typescript": "^5.0.0",
+    "vite": "^5.0.0",
+    "vite-plugin-dts": "^3.0.0",
+    "vue-tsc": "^3.0.1"
+  }
+}

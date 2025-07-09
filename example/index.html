@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        var coverSupport = 'CSS' in window && typeof CSS.supports === 'function' && (CSS.supports('top: env(a)') ||
+          CSS.supports('top: constant(a)'))
+        document.write(
+          '<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' +
+          (coverSupport ? ', viewport-fit=cover' : '') + '" />')
+      </script>
+    <title>WatermarkCamera 组件测试</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .demo-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+        }
+        .demo-section h2 {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .button-group {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .button-group button {
+            padding: 8px 16px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .button-group button:hover {
+            background: #0056b3;
+        }
+        .log-container {
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+            background: #f8f9fa;
+        }
+        .log-item {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 8px;
+            padding: 4px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .log-time {
+            color: #666;
+            font-size: 12px;
+            min-width: 80px;
+        }
+        .log-type {
+            color: #007bff;
+            font-weight: bold;
+            min-width: 80px;
+        }
+        .log-message {
+            color: #333;
+            flex: 1;
+            word-break: break-all;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>WatermarkCamera 组件测试</h1>
+        
+        <div class="demo-section">
+            <h2>基本用法</h2>
+            <div id="basic-demo"></div>
+            <p id="basic-info"></p>
+        </div>
+
+        <div class="demo-section">
+            <h2>高级配置</h2>
+            <div id="advanced-demo"></div>
+        </div>
+
+        <div class="demo-section">
+            <h2>手动控制</h2>
+            <div id="manual-demo"></div>
+            <div class="button-group">
+                <button onclick="takePhoto()">手动拍照</button>
+                <button onclick="deletePhoto()">删除照片</button>
+                <button onclick="getLocation()">获取定位</button>
+                <button onclick="getTime()">获取时间</button>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>事件日志</h2>
+            <div class="log-container" id="log-container"></div>
+        </div>
+    </div>
+
+    <script type="module" src="./main.ts"></script>
+</body>
+</html> 

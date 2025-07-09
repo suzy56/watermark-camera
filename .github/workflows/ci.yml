@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+        
+      - name: 设置 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          
+      - name: 安装依赖
+        run: npm ci
+        
+      - name: 运行类型检查
+        run: npm run type-check
+        
+      - name: 构建项目
+        run: npm run build
+        
+      - name: 检查构建输出
+        run: |
+          if [ ! -d "dist" ]; then
+            echo "❌ dist 目录不存在"
+            exit 1
+          fi
+          echo "✅ 构建成功"
+          
+      - name: 上传构建产物
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-files
+          path: dist/ 
