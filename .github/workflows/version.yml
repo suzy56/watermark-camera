@@ -7,9 +7,6 @@ on:
       - '**.md'
       - '.github/workflows/version.yml'
 
-permissions:
-  contents: write
-
 jobs:
   version:
     runs-on: ubuntu-latest
