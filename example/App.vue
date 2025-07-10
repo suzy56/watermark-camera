@@ -59,8 +59,11 @@
 </template>
 
 <script setup lang="ts">
+import '../dist/style.css'
 import { ref } from 'vue'
-import { WatermarkCamera } from '../src/index'
+// import { WatermarkCamera } from '../src/index'
+import { WatermarkCamera } from '../dist/index.mjs'
+
 import type { LocationResult } from '../src/types'
 
 const photoUrl = ref('')

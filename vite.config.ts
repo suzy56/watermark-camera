@@ -38,6 +38,8 @@ export default defineConfig(({ command }) => {
     resolve: {
       alias: {
         '@': resolve(__dirname, 'src'),
+        // 允许从dist目录导入
+        'dist': resolve(__dirname, 'dist'),
       },
     },
     // 开发服务器配置
@@ -51,6 +53,10 @@ export default defineConfig(({ command }) => {
       },
       open: '/example/app.html', // 默认打开 App.vue 版本
       cors: true,
+      // 允许访问dist目录
+      fs: {
+        allow: ['..', 'dist']
+      }
     },
     // 预览配置
     preview: {

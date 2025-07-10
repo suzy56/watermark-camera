@@ -43,7 +43,8 @@
     "vue": "^3.0.0"
   },
   "dependencies": {
-    "dingtalk-jsapi": "^3.1.0"
+    "dingtalk-jsapi": "^3.1.0",
+    "vue3-watermark-camera": "^1.1.0"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
