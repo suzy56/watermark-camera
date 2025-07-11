@@ -59,10 +59,10 @@
 </template>
 
 <script setup lang="ts">
-import '../dist/style.css'
+// import '../dist/style.css'
 import { ref } from 'vue'
 // import { WatermarkCamera } from '../src/index'
-import { WatermarkCamera } from '../dist/index.mjs'
+import { WatermarkCamera } from 'vue3-watermark-camera'
 
 import type { LocationResult } from '../src/types'
 

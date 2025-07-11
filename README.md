@@ -95,7 +95,7 @@ const handleUploadSuccess = (data) => {
 <script setup>
 import { ref } from 'vue'
 import { WatermarkCamera } from 'watermark-camera'
-
+import 'vue3-watermark-camera/style'
 const photoUrl = ref('')
 
 // 水印配置

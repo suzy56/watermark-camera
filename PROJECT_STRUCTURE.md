@@ -1,7 +1,7 @@
 # WatermarkCamera 组件项目结构
 
 ```
-watermark-camera/
+vue3-watermark-camera/
 ├── src/                          # 源代码目录
 │   ├── components/               # 组件目录
 │   │   └── WatermarkCamera.vue  # 主组件文件
@@ -71,18 +71,18 @@ watermark-camera/
 ### 作为 npm 包使用
 
 ```bash
-npm install watermark-camera
+npm install vue3-watermark-camera
 ```
 
 ```javascript
-import { WatermarkCamera } from 'watermark-camera'
-import 'watermark-camera/style'
+import { WatermarkCamera } from 'vue3-watermark-camera'
+import 'vue3-watermark-camera/style'
 ```
 
 ### 本地开发
 
 ```bash
-cd watermark-camera
+cd vue3-watermark-camera
 npm install
 npm run dev
 ```
